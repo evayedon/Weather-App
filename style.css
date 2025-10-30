@@ -1,82 +1,189 @@
-body{
-    font-family: Arial, sans-serif;
-    background-color: hsl(0, 0%, 95%);
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.weatherForm{
-    margin: 20px;
+.container {
+    max-width: 500px;
+    width: 100%;
 }
 
-.cityInput{
-    padding: 10px;
-    font-size: 2rem;
-    font-weight: bold;
-    border: 2px solid hsla(0, 0%, 20%, 0.3);
-    border-radius: 10px;
-    margin: 20px;
-    width: 300px;
-}
-button[type="submit"]{
-    padding: 10px 20px;
-    font-weight: bold;
-    font-size: 2rem;
+h1 {
+    text-align: center;
     color: white;
-    background-color: hsl(122, 50%, 50%);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-button[type="submit"]:hover{
-        background-color: hsl(122, 50%, 40%);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.card{
-    background: linear-gradient(180deg, hsl(214, 62%, 55%), rgb(219, 189, 15));
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.507);
-    min-width: 300px;
+.weatherForm {
     display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.cityInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.cityInput:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #667eea;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    display: none;
     flex-direction: column;
     align-items: center;
+    animation: fadeIn 0.5s;
 }
 
-h1{
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-p{
-    font-size: 1.5rem;
-    margin: 5px 0;
-}
-
-.cityDisplay, .tempDisplay{
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.75);
-    margin-bottom: 25px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.humidityDisplay{
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-.descripDisplay{
-    font-style: italic;
-    font-weight: bold;
-    font-size: 2rem;
-}
-.weatherEmoji{
-    margin: 0;
-    font-size: 7.5rem;
+.loading {
+    text-align: center;
+    color: #667eea;
+    font-size: 18px;
+    padding: 20px;
 }
 
-.errorDisplay{
-    font-size: 2.5rem;
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cityDisplay {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.weatherEmoji {
+    font-size: 5em;
+    margin: 20px 0;
+}
+
+.tempDisplay {
+    font-size: 3em;
+    color: #667eea;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.75);
+    margin: 10px 0;
+}
+
+.descripDisplay {
+    font-size: 1.3em;
+    color: #666;
+    text-transform: capitalize;
+    margin: 10px 0;
+}
+
+.detailsContainer {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+.detail {
+    text-align: center;
+}
+
+.detailLabel {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.detailValue {
+    color: #333;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.errorDisplay {
+    color: #e74c3c;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 20px;
+}
+
+.errorIcon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .weatherForm {
+        flex-direction: column;
+    }
+
+    .detailsContainer {
+        gap: 20px;
+    }
 }
