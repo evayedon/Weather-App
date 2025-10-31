@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>🌤️ Weather App</h1>
+        <h1>🌤️ Weather Forecast</h1>
+
+        <div class="recentSearches" id="recentSearches">
+            <h3>Recent Searches</h3>
+            <div class="recentCities" id="recentCities"></div>
+        </div>
+
+        <div class="toggleUnit">
+            <button class="unitBtn active" data-unit="celsius">°C</button>
+            <button class="unitBtn" data-unit="fahrenheit">°F</button>
+        </div>
+
         <form class="weatherForm">
-            <input 
-                type="text" 
-                class="cityInput" 
-                placeholder="Enter city name..."
-                autocomplete="off"
-            >
+            <div class="inputWrapper">
+                <input type="text" class="cityInput" placeholder="Enter city name..." autocomplete="off">
+                <button type="button" class="locationBtn" title="Use my location">📍</button>
+            </div>
             <button type="submit">Search</button>
         </form>
         <div class="card"></div>
+    </div>
     <script src="index.js"></script>
 </body>
+
 </html>
