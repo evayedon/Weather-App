@@ -21,17 +21,19 @@ The **Weather Forecast App** is a simple and responsive web application that pro
 
 ## ⚙️ How It Works
 
-1. 🧑‍💻 User enters the name of a city
+1. 🧑‍💻 User enters the name of a city, click on the locate pin
 2. 🔄 App makes an API call to OpenWeatherMap
 3. 📱 Weather data is returned in JSON format
 4. 📊 App displays the data in a clean interface
 
 ## 📸 Preview
 
-> *You can add a screenshot or GIF of the app here*
+><img width="976" height="939" alt="image" src="https://github.com/user-attachments/assets/84155d20-cddb-42b8-ba67-617f966050b9" />
+
 
 ## 🚀 Getting Started
 
 1. Clone the repository
 2. Add your API key from OpenWeatherMap
 3. Open `index.html` in your browser
+
