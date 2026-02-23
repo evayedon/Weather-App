@@ -1,0 +1,16 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "The **Weather Forecast App** is a simple and responsive web application that provides real-time weather updates for any city 🌍. Users can type in a city name to get the current weather conditions including temperature 🌡️, weather description ☁️, humidity 💧, and wind speed 🌬️ — all fetched from a public weather API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}
