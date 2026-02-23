@@ -4,7 +4,8 @@ const card = document.querySelector(".card");
 const submitBtn = weatherForm.querySelector("button[type='submit']");
 const locationBtn = document.querySelector(".locationBtn");
 const unitBtns = document.querySelectorAll(".unitBtn");
-const apiKey = "YOUR API HERE";
+require("dotenv").config()
+const apiKey = process.env.OPEN_WEATHER;
 
 let currentUnit = "celsius";
 let currentWeatherData = null;
